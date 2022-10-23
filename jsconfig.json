@@ -5,6 +5,7 @@
         "@/elements/*": ["components/elements/*"],
         "@/layout/*": ["components/layout/*"],
         "@/modules/*": ["components/modules/*"],
+        "@/templates/*": ["components/templates/*"],
         "@/lib/*": ["lib/*"],
         "@/styles/*": ["styles/*"],
       }

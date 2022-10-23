@@ -1,25 +1,8 @@
 import Head from 'next/head';
-import { useQuery } from 'urql';
-import { PHASE_PRODUCTION_SERVER } from 'next/dist/shared/lib/constants';
-
-import Error from '@/elements/Error';
-import LoaderSpinner from '@/elements/loaders/LoaderSpinner';
-import LoaderSkeleton from '@/elements/loaders/LoaderSkeleton';
 import Layout from '@/layout/Layout'
-import ProductCard from '@/modules/ProductCard';
-import Header from '@/modules/navigation/Header';
-import Footer from '@/modules/navigation/Footer';
-import { PRODUCT_QUERY } from '@/lib/query';
+import HomeTemplate from '@/templates/HomeTemplate';
 
 export default function Home() {
-  const [results] = useQuery({query: PRODUCT_QUERY});
-  const {data, fetching, error} = results;
-  // console.log(data);
-
-  if (fetching) return <LoaderSpinner />
-  if (error) return <Error message={error.message}/>
-  const products = data.products.data;
-
   return (
     <>
       <Head>
@@ -30,11 +13,7 @@ export default function Home() {
 
       <Layout>
         <h1 className='title-main'>aasdasdasds</h1>
-        <div className='grid grid-cols-3'>
-          {products && products.map((product, i) => {
-            return  <ProductCard key={i} product={product}/>
-          })}
-         </div>
+        <HomeTemplate />
       </Layout>
     </>
   )
