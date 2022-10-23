@@ -4,12 +4,12 @@ import Image from 'next/image';
 import { useQuery } from "urql";
 import { PHASE_PRODUCTION_SERVER } from "next/dist/shared/lib/constants";
 
-import Error from "@/components/Error";
-import ProductCard from "@/components/ProductCard";
-import LoaderSpinner from "@/UI/loaders/LoaderSpinner";
-import LoaderSkeleton from "@/UI/loaders/LoaderSkeleton";
-import Header from "@/UI/Header";
-import Footer from "@/UI/Footer";
+import Error from "@/elements/Error";
+import LoaderSpinner from "@/elements/loaders/LoaderSpinner";
+import LoaderSkeleton from "@/elements/loaders/LoaderSkeleton";
+import ProductCard from "@/modules/ProductCard";
+import Header from "@/modules/navigation/Header";
+import Footer from "@/modules/navigation/Footer";
 import { GET_PRODUCT_QUERY } from "@/lib/query";
 
 export default function Home() {
