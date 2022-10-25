@@ -1,12 +1,16 @@
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import { useQuery } from "urql";
+import { useCartContext } from "contexts/CartContext";
 
 import Error from "@/elements/Error";
 import LoaderSpinner from "@/elements/loaders/LoaderSpinner";
 import { GET_PRODUCT_QUERY } from "@/lib/query";
 
 const ProductTemplate = () => {
+  const { increaseQuantity, decreaseQuantity, setQuantity, quantity, onAdd } =
+    useCartContext();
   const { query } = useRouter();
   const [results] = useQuery({
     query: GET_PRODUCT_QUERY,
@@ -14,9 +18,25 @@ const ProductTemplate = () => {
   });
   const { data, fetching, error } = results;
 
+  const resetQuantity = () => {
+    setQuantity(1);
+  };
+
+  useEffect(() => {
+    resetQuantity();
+  }, []);
+
+  const notify = () => {
+    console.log(`${title} added to your cart.`);
+  };
+
+  const handleClick = () => {
+    onAdd(data.products.data[0].attributes, quantity);
+    notify();
+  };
+
   if (fetching) return <LoaderSpinner />;
   if (error) return <Error message={error.message} />;
-  const products = data.products.data;
   const { title, description, image, price } = data.products.data[0].attributes;
 
   return (
@@ -52,11 +72,14 @@ const ProductTemplate = () => {
                 </div>
                 <div className="inline-block align-bottom">
                   <div className="flex flex-row">
-                    <div>-</div>
-                    <div>1</div>
-                    <div>+</div>
+                    <button onClick={decreaseQuantity}>-</button>
+                    <div>{quantity}</div>
+                    <button onClick={increaseQuantity}>+</button>
                   </div>
-                  <button className="px-10 py-2 font-semibold text-yellow-900 bg-yellow-300 rounded-full opacity-75 hover:opacity-100 hover:text-gray-900">
+                  <button
+                    onClick={handleClick}
+                    className="px-10 py-2 font-semibold text-yellow-900 bg-yellow-300 rounded-full opacity-75 hover:opacity-100 hover:text-gray-900"
+                  >
                     <i className="mr-2 -ml-2 mdi mdi-cart"></i> BUY NOW
                   </button>
                 </div>
