@@ -12,7 +12,6 @@ export default function Home() {
       </Head>
 
       <Layout>
-        <h1 className='title-main'>aasdasdasds</h1>
         <HomeTemplate />
       </Layout>
     </>

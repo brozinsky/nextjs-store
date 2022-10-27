@@ -7,9 +7,7 @@ const ProductCard = ({ product }) => {
   const { url, width, height } = image.data.attributes.formats.thumbnail;
   return (
     <div className="flex max-w-md m-4 overflow-hidden bg-white rounded-lg shadow-lg">
-      <Link href={`/product/${slug}`}>
-        <Image className="cursor-pointer" src={url} width={width} height={height} alt={title} />
-      </Link>
+      <Image className="cursor-pointer" src={url} width={width} height={height} alt={title} />
       <div className="w-2/3 p-4">
         <div>Category</div>
         <Link href={`/product/${slug}`}>
@@ -18,9 +16,11 @@ const ProductCard = ({ product }) => {
         <p className="mt-2 text-sm text-gray-600">{description}</p>
         <div className="flex justify-between mt-3 item-center">
           <h1 className="text-xl font-bold text-gray-700">${price}</h1>
-          <button className="px-3 py-2 text-xs font-bold text-white uppercase bg-gray-800 rounded">
-            Add
-          </button>
+        <Link href={`/product/${slug}`}>
+          <a className="px-3 py-2 text-xs font-bold">
+            More {'>'}
+          </a>
+        </Link>
         </div>
       </div>
     </div>
