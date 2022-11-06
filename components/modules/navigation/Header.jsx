@@ -1,9 +1,10 @@
 import { useRouter } from 'next/router';
 import Hamburger from "@/elements/buttons/Hamburger";
-import CartDrawer from "@/modules/cart/CartDrawer";
+import Link from "next/link";
 
 const navItems = [
   { name: "Home", url: "/" },
+  { name: "Contact", url: "/contact" },
   { name: "Cart", url: "/cart" },
 ];
 
@@ -31,22 +32,19 @@ const Header = () => {
           <div className="text-sm lg:flex-grow">
             {navItems.map(({ name, url }, i) => {
               return (
-                <a
+                <Link
                   key={i}
                   href={url}
-                  className="block mt-4 mr-4 text-teal-200 lg:inline-block lg:mt-0 hover:text-white"
                 >
-                  {name}
-                </a>
+                  <span className="block mt-4 mr-4 text-teal-200 cursor-pointer lg:inline-block lg:mt-0 hover:text-white">
+                    {name}
+                  </span>
+                </Link>
               );
             })}
           </div>
         </div>
       </nav>
-      {router.pathname === "/cart" 
-      ? null
-      : <CartDrawer />}
-      
     </>
   );
 };

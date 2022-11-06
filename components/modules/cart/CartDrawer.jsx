@@ -6,7 +6,7 @@ import Item from "@/elements/cart/Item";
 // import getStripe from "@/lib/getStripe";
 
 const CartDrawer = () => {
-  const { cartItems, setShowCart, onAdd, onRemove, totalPrice } =
+  const { cartItems, totalPrice } =
     useCartContext();
 
   //Payment
