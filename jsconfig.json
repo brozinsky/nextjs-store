@@ -8,6 +8,8 @@
         "@/templates/*": ["components/templates/*"],
         "@/lib/*": ["lib/*"],
         "@/styles/*": ["styles/*"],
+        "@/utils/*": ["utils/*"],
+        "@/public/*": ["public/*"],
       }
     }
 }
