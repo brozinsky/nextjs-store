@@ -1,16 +1,20 @@
-import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
 const ModalProduct = ({ img, title, price, setShowModal }) => {
-
   const handleClose = () => {
     setShowModal(false);
-  }
+  };
 
   return (
-    <div onClick={handleClose} className="absolute z-10 w-full h-full backdrop-brightness-50">
-      <div onClick={e => e.stopPropagation()} className="absolute flex flex-col items-center gap-4 p-6 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-md shadow-md top-1/2 left-1/2 e sm:py-8 sm:px-12 dark:bg-gray-900 dark:text-gray-100">
+    <div
+      onClick={handleClose}
+      className="absolute z-10 w-full h-full backdrop-brightness-50"
+    >
+      <div
+        onClick={(e) => e.stopPropagation()}
+        className="absolute flex flex-col items-center gap-4 p-6 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-md shadow-md top-1/2 left-1/2 e sm:py-8 sm:px-12 dark:bg-gray-900 dark:text-gray-100"
+      >
         <button onClick={handleClose} className="absolute top-2 right-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -74,7 +78,8 @@ const ModalProduct = ({ img, title, price, setShowModal }) => {
           </button>
           <Link href={`/cart`}>
             <button className="px-6 py-2 border rounded-md dark:bg-violet-400 dark:text-gray-900 dark:border-violet-400">
-              <span className="sr-only sm:not-sr-only">Continue to </span>Checkout
+              <span className="sr-only sm:not-sr-only">Continue to </span>
+              Checkout
             </button>
           </Link>
         </div>

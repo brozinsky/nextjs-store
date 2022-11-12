@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 
 const Context = createContext();
 
@@ -20,12 +20,8 @@ export const CartContext = ({ children }) => {
   };
 
   const onAdd = (product, quantity) => {
-    setTotalPrice(
-      (prevState) => prevState + product.price * quantity
-    );
-    setTotalQuantitites(
-      (prevState) => prevState + quantity
-    );
+    setTotalPrice((prevState) => prevState + product.price * quantity);
+    setTotalQuantitites((prevState) => prevState + quantity);
     //check if product is in the cart
     const exist = cartItems.find((item) => item.slug === product.slug);
     if (exist) {
