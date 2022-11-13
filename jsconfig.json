@@ -10,6 +10,8 @@
         "@/styles/*": ["styles/*"],
         "@/utils/*": ["utils/*"],
         "@/public/*": ["public/*"],
+        "@/hooks/*": ["hooks/*"],
+        "@/contexts/*": ["contexts/*"],
       }
     }
 }
