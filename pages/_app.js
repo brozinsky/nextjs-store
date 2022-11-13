@@ -1,17 +1,20 @@
-import '@/styles/globals.scss'
-import {Provider, createClient} from "urql";
+import "@/styles/globals.scss";
+import { Provider, createClient } from "urql";
 import { CartContext } from "contexts/CartContext";
+import { QueryContext } from "contexts/QueryContext";
 
-const client = createClient({url: "http://localhost:1338/graphql"});
+const client = createClient({ url: "http://localhost:1338/graphql" });
 
 function MyApp({ Component, pageProps }) {
   return (
     <Provider value={client}>
-      <CartContext>
-        <Component {...pageProps} />
-      </CartContext>
+      <QueryContext>
+        <CartContext>
+          <Component {...pageProps} />
+        </CartContext>
+      </QueryContext>
     </Provider>
-  )
+  );
 }
 
-export default MyApp
+export default MyApp;
