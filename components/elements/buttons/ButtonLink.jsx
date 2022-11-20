@@ -20,7 +20,7 @@ const roundedClasses = {
   sm: "rounded-md",
 };
 
-const baseClasses = "text-center";
+const baseClasses = "text-center cursor-pointer";
 
 const ButtonLink = ({
   href,
