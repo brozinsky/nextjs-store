@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 const sizeClasses = {
   xsm: "py-2 px-3 text-xs ",
   sm: "py-2 px-3 text-sm ",
@@ -33,17 +31,16 @@ const ButtonLink = ({
   rounded = "sm",
 }) => {
   return (
-    <Link href={href}>
-      <span
-        className={`${sizeClasses[size]} ${variantClasses[variant]} ${
-          roundedClasses[rounded]
-        } ${baseClasses} ${className} ${bold ? "font-semibold" : ""} ${
-          uppercase ? "uppercase" : ""
-        }`}
-      >
-        {children}
-      </span>
-    </Link>
+    <button
+      href={href}
+      className={`${sizeClasses[size]} ${variantClasses[variant]} ${
+        roundedClasses[rounded]
+      } ${baseClasses} ${className} ${bold ? "font-semibold" : ""} ${
+        uppercase ? "uppercase" : ""
+      }`}
+    >
+      {children}
+    </button>
   );
 };
 
