@@ -1,5 +1,3 @@
-import { useRouter } from "next/router";
-import Link from "next/link";
 import Hamburger from "@/elements/buttons/Hamburger";
 import NavLink from "@/elements/buttons/NavLink";
 import CartButton from "@/elements/buttons/CartButton";
@@ -12,10 +10,9 @@ const navItems = [
 ];
 
 const Header = () => {
-  const router = useRouter();
   return (
     <>
-      <header className="sticky top-0 z-50 p-6 bg-white shadow-md">
+      <header className="sticky top-0 z-50 bg-white shadow-md">
         <nav className="container flex flex-wrap items-center justify-between">
           <div className="flex items-center flex-shrink-0 mr-6 text-white">
             <svg

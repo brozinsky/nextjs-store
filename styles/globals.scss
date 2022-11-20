@@ -23,6 +23,34 @@ a {
   color: red;
 }
 
+@keyframes example {
+    from {transform: translateX(-100%);}
+    to {transform: translateX(0);}
+  }
+
+.navlink {
+  @apply relative overflow-x-hidden py-6;
+
+  &:after {
+    @apply bg-primary-500 w-full block absolute;
+    content: "";
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    transition: all 0.15s ease;
+    transform: translateX(-100%);
+  }
+  &--active {
+    @apply relative text-primary-500;
+    &:after {
+      transform: translateX(0);
+      animation-name: example;
+      animation-duration: 0.35s;
+    }
+  }
+
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
