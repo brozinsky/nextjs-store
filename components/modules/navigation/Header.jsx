@@ -4,9 +4,10 @@ import NavLink from "@/elements/buttons/NavLink";
 import CartButton from "@/elements/buttons/CartButton";
 
 const navItems = [
-  { name: "Products", url: "/products" },
-  { name: "About", url: "/about" },
-  { name: "Contact", url: "/contact" },
+  { name: "Sale", url: "/sale", type: "sale" },
+  { name: "Products", url: "/products", type: "normal" },
+  { name: "About", url: "/about", type: "normal" },
+  { name: "Contact", url: "/contact", type: "normal" },
 ];
 
 const Header = () => {
@@ -36,9 +37,9 @@ const Header = () => {
           <Hamburger />
           <div className="justify-end flex-grow block w-full lg:flex lg:items-center lg:w-auto">
             <ul className="flex items-center justify-end space-x-8 text-sm">
-              {navItems.map(({ name, url }, i) => {
+              {navItems.map(({ name, url, type }, i) => {
                 return (
-                  <NavLink key={name + i} href={url}>
+                  <NavLink key={name + i} href={url} type={type}>
                     {name}
                   </NavLink>
                 );
