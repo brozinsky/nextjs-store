@@ -5,7 +5,7 @@ const CartButton = ({ href }) => {
   const { cartItems } = useCartContext();
   return (
     <Link href={href}>
-      <button class="h-6 w-6 relative items-center mr-2">
+      <button className="relative items-center w-6 h-6 mr-2">
         <div
           className={`absolute flex items-center justify-center w-5 h-5 text-sm font-bold rounded-full -top-3 -right-2 ${
             cartItems.length > 0 ? "bg-primary-500 text-white" : ""
@@ -26,7 +26,7 @@ const CartButton = ({ href }) => {
           />
         </svg>
 
-        <span class="sr-only">Icon description</span>
+        <span className="sr-only">Icon description</span>
       </button>
     </Link>
   );
