@@ -6,6 +6,7 @@ import Filter from "@/modules/filter/Filter";
 import ProductCard from "@/modules/ProductCard";
 import { useQueryContext } from "@/contexts/QueryContext";
 import { PRODUCT_FILTER_QUERY } from "@/lib/query";
+import Breadcrumbs from "@/modules/navigation/Breadcrumbs";
 
 const ProductsTemplate = () => {
   const [filters, setFilters] = useState(null);
@@ -43,6 +44,7 @@ const ProductsTemplate = () => {
 
   return (
     <>
+      <Breadcrumbs />
       <div>
         <Filter />
       </div>

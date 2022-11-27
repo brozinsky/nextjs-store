@@ -4,6 +4,7 @@ import Error from "@/elements/Error";
 import Filter from "@/modules/filter/Filter";
 import ProductCard from "@/modules/ProductCard";
 import { PRODUCT_FILTER_SALE_QUERY } from "@/lib/query";
+import Breadcrumbs from "@/modules/navigation/Breadcrumbs";
 
 const ProductsTemplate = () => {
   const [results] = useQuery({
@@ -17,6 +18,7 @@ const ProductsTemplate = () => {
 
   return (
     <>
+      <Breadcrumbs />
       <div>
         <Filter />
       </div>

@@ -8,11 +8,18 @@ import Error from "@/elements/Error";
 import LoaderSpinner from "@/elements/loaders/LoaderSpinner";
 import { GET_PRODUCT_QUERY } from "@/lib/query";
 import ModalProduct from "@/modules/modals/ModalProduct";
+import Breadcrumbs from "@/modules/navigation/Breadcrumbs";
 
 const ProductTemplate = () => {
-  const [ showModal, setShowModal ] = useState(false);
-  const { increaseQuantity, decreaseQuantity, setQuantity, quantity, onAdd, cartItems } =
-    useCartContext();
+  const [showModal, setShowModal] = useState(false);
+  const {
+    increaseQuantity,
+    decreaseQuantity,
+    setQuantity,
+    quantity,
+    onAdd,
+    cartItems,
+  } = useCartContext();
   const { query } = useRouter();
   const [results] = useQuery({
     query: GET_PRODUCT_QUERY,
@@ -43,7 +50,15 @@ const ProductTemplate = () => {
 
   return (
     <>
-      {cartItems.length >= 1 && showModal ? <ModalProduct setShowModal={setShowModal} img={image.data.attributes.formats.medium.url} title={title} price={price}/> : null}
+      <Breadcrumbs />
+      {cartItems.length >= 1 && showModal ? (
+        <ModalProduct
+          setShowModal={setShowModal}
+          img={image.data.attributes.formats.medium.url}
+          title={title}
+          price={price}
+        />
+      ) : null}
       <main className="container mx-auto">
         <div className="relative flex items-center min-h-screen p-5 overflow-hidden min-w-screen lg:p-10">
           <div className="relative w-full max-w-6xl p-10 mx-auto text-gray-800 bg-white rounded shadow-xl lg:p-20 md:text-left">
