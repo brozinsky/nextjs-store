@@ -1,0 +1,25 @@
+.button {
+  @apply px-5 py-2.5 text-base bg-primary-500 text-white;
+  transition: 0.25s ease;
+  &--outlined {
+    @apply border text-primary-500 border-primary-500 bg-transparent;
+  }
+  &--outlined-white {
+    @apply border text-white border-white bg-transparent;
+    &:hover {
+      @apply bg-white text-slate-800;
+    }
+  }
+  &--xsm {
+    @apply py-2 px-3 text-xs;
+  }
+  &--sm {
+    @apply py-2 px-3 text-sm;
+  }
+  &--lg {
+    @apply py-3 px-5 text-base;
+  }
+  &--xl {
+    @apply px-6 py-3.5 text-base;
+  }
+}

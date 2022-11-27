@@ -1,16 +1,18 @@
+import clsx from "clsx";
 import Link from "next/link";
 
 const sizeClasses = {
-  xsm: "py-2 px-3 text-xs ",
-  sm: "py-2 px-3 text-sm ",
-  base: "px-5 py-2.5 text-base",
-  lg: "py-3 px-5 text-base",
-  xl: "px-6 py-3.5 text-base",
+  xsm: "button--xsm",
+  sm: "button--sm",
+  base: "",
+  lg: "button--lg",
+  xl: "button--xl",
 };
 
 const variantClasses = {
-  primary: "bg-primary-500 text-white",
-  secondary: "border border-primary-500 text-black",
+  primary: "",
+  outlined: "button--outlined ",
+  "outlined-white": "button--outlined-white",
 };
 
 const roundedClasses = {
@@ -18,6 +20,11 @@ const roundedClasses = {
   none: "",
   full: "rounded-full",
   sm: "rounded-md",
+};
+
+const hoverClasses = {
+  default: "hover--default",
+  up: "hover--up",
 };
 
 const baseClasses = "text-center cursor-pointer";
@@ -31,15 +38,16 @@ const ButtonLink = ({
   size = "base",
   variant = "primary",
   rounded = "sm",
+  hover = "default",
 }) => {
   return (
     <Link href={href}>
       <span
-        className={`${sizeClasses[size]} ${variantClasses[variant]} ${
-          roundedClasses[rounded]
-        } ${baseClasses} ${className} ${bold ? "font-semibold" : ""} ${
-          uppercase ? "uppercase" : ""
-        }`}
+        className={`button ${hoverClasses[hover]} ${sizeClasses[size]} ${
+          variantClasses[variant]
+        } ${roundedClasses[rounded]} ${baseClasses} ${className} ${
+          bold ? "font-semibold" : ""
+        } ${uppercase ? "uppercase" : ""}`}
       >
         {children}
       </span>
