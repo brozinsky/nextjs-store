@@ -3,7 +3,7 @@ import ButtonLink from "@/elements/buttons/ButtonLink";
 
 const Collection = ({ image, align, content }) => {
   return (
-    <div className="relative">
+    <div className="relative zoom-in">
       <div
         className={`absolute top-0 z-10 flex flex-col justify-center h-full px-24 ${
           { left: "left-0 items-start", right: "right-0 items-end" }[align]
@@ -18,7 +18,7 @@ const Collection = ({ image, align, content }) => {
           <br />
           Collection
         </h3>
-        <ButtonLink href="#" className="">
+        <ButtonLink href="#" rounded="none" className="">
           Shop now
         </ButtonLink>
       </div>
