@@ -1,5 +1,5 @@
-import clsx from "clsx";
 import Link from "next/link";
+import Image from "next/image";
 
 const sizeClasses = {
   xsm: "button--xsm",
@@ -13,6 +13,7 @@ const variantClasses = {
   primary: "",
   outlined: "button--outlined ",
   "outlined-white": "button--outlined-white",
+  "outlined-black": "button--outlined-black",
 };
 
 const roundedClasses = {
@@ -35,6 +36,7 @@ const ButtonLink = ({
   className,
   bold = true,
   uppercase = true,
+  icon,
   size = "base",
   variant = "primary",
   rounded = "sm",
@@ -50,6 +52,15 @@ const ButtonLink = ({
         } ${uppercase ? "uppercase" : ""}`}
       >
         {children}
+        {icon ? (
+          <Image
+            className="button-icon"
+            width={22}
+            height={22}
+            src={icon}
+            alt=""
+          />
+        ) : null}
       </span>
     </Link>
   );

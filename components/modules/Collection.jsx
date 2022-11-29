@@ -1,5 +1,6 @@
 import Image from "next/image";
 import ButtonLink from "@/elements/buttons/ButtonLink";
+import ArrowRightIcon from "@/public/icons/arrow-right.svg";
 
 const Collection = ({ image, align, content }) => {
   return (
@@ -18,7 +19,13 @@ const Collection = ({ image, align, content }) => {
           <br />
           Collection
         </h3>
-        <ButtonLink href="#" rounded="none" className="">
+        <ButtonLink
+          variant="outlined-black"
+          href="#"
+          rounded="none"
+          className=""
+          icon={ArrowRightIcon}
+        >
           Shop now
         </ButtonLink>
       </div>

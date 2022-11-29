@@ -1,6 +1,11 @@
 .button {
-  @apply px-5 py-2.5 text-base bg-primary-500 text-white;
-  transition: 0.25s ease;
+  @apply px-5 py-2.5 text-base bg-primary-500 text-white flex gap-1 items-center;
+  transition: 0.15s ease;
+  &:hover {
+    .button-icon {
+      transform: translateX(5px);
+    }
+  }
   &--outlined {
     @apply border text-primary-500 border-primary-500 bg-transparent;
   }
@@ -8,6 +13,16 @@
     @apply border text-white border-white bg-transparent;
     &:hover {
       @apply bg-white text-slate-800;
+    }
+  }
+  &--outlined-black {
+    @apply border text-black border-black bg-transparent;
+    &:hover {
+      @apply bg-black text-slate-100;
+      img {
+        transition: 0.15s;
+        @extend .filter-white;
+      }
     }
   }
   &--xsm {
